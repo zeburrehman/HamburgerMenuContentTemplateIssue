@@ -3,3 +3,6 @@
 ################################################################################
 
 /packages
+/.vs/HamburgerMenuPlayground/v15
+/HamburgerMenuPlayground/bin/Debug
+/HamburgerMenuPlayground/obj/Debug

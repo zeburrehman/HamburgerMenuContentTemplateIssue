@@ -1,4 +1,5 @@
 ﻿using HamburgerMenuPlayground.Modules.ModuleA.ViewModels;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,8 @@ namespace HamburgerMenuPlayground.Modules.ModuleA.Views
 
         private void HamburgerMenu_ItemClick(object sender, MahApps.Metro.Controls.ItemClickEventArgs e)
         {
-            var vm = (HamburgerMenuViewModel)this.DataContext;
-
+            //var vm = (HamburgerMenuViewModel)this.DataContext;
+            ((HamburgerMenu)sender).Content = e.ClickedItem;
         }
     }
 }

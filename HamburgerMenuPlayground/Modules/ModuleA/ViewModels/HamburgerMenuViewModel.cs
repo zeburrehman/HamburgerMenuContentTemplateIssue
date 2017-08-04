@@ -24,18 +24,23 @@ namespace HamburgerMenuPlayground.Modules.ModuleA.ViewModels
             set { _selectedStepView = value; }
         }
 
+        private object _contentDataContext;
+        public object ContentDataContext
+        {
+            get { return _contentDataContext; }
+            set { SetProperty(ref _contentDataContext, value); }
+        }
+        
         private ICommand _itemClickCommand;
-
         public ICommand ItemClickCommand
         {
             get { return _itemClickCommand; }
             set { _itemClickCommand = value; }
         }
-
-
+        
         public HamburgerMenuViewModel()
         {
-            ItemClickCommand = new DelegateCommand(ItemClickedEvent);
+            ItemClickCommand = new DelegateCommand<object>(ItemClickedEvent);
             StepViews = new ObservableCollection<StepView>
             {
                 new StepView{ Name = "ResourceManagement", Description = "Resource Management", IconImage = FontAwesomeIcon.UserCircleOutline },
@@ -48,9 +53,9 @@ namespace HamburgerMenuPlayground.Modules.ModuleA.ViewModels
             
         }
 
-        private void ItemClickedEvent()
+        private void ItemClickedEvent(object dc)
         {
-            
+            ContentDataContext = dc;
         }
     }
 }
